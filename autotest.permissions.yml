@@ -1,0 +1,7 @@
+autotest access:
+  title: 'Access auto tests'
+  description: 'Access auto tests'
+
+autotest admin:
+  title: 'Administer auto tests'
+  description: 'Administer auto tests questions and answers'

@@ -1,0 +1,7 @@
+autotest.settings:
+  type: config_object
+  label: 'Autotest settings'
+  mapping: 
+    time_limit:
+      type: integer
+      label: 'Time limit (minutes)'

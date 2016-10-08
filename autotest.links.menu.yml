@@ -1,0 +1,5 @@
+autotest.settings:
+  title: 'Autotest settings'
+  description: 'Configure autotest settings.'
+  route_name: autotest.settings
+  parent: system.admin_config_content

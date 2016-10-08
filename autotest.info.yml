@@ -1,0 +1,7 @@
+name: 'Autotest'
+type: module
+description: 'Quizes for driving school'
+package: 'WE4CE'
+core: '8.x'
+version: '8.x-0.1'
+configure: autotest.settings

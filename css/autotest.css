@@ -1,0 +1,75 @@
+.question .timer {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: right;
+}
+
+.question ul.links {
+  margin: 10px 0;
+}
+
+.question ul.links li {
+  display: inline-block;
+  background: none;
+  list-style: none;
+  padding: 0 20px 0 0;
+  margin: 0;
+}
+
+.question ul.links li a {
+  display: block;
+  padding: 0 10px;
+  line-height: 46px;
+  background: #888;
+  border-radius: 23px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.question ul.links li a.square {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+}
+
+.question ul.links li a:hover {
+  background: #444;
+}
+
+table.autotest-results thead th,
+table.autotest-results tbody td {
+  text-align: center;
+}
+
+table.autotest-results .correct,
+table.autotest-results .wrong {
+  color: #33aa33;
+  background: url('buttons.png') no-repeat;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  text-indent: 50px;
+}
+
+table.autotest-results .wrong {
+  color: #ff3333;
+  background-position: 0 -25px;
+}
+
+
+.item-list ul.start-test li {
+  display: inline-block;
+  margin: 0 0 10px;
+  width: 100px;
+}
+
+.item-list ul.start-test li:first-child {
+  display: block;
+  width: auto;
+}

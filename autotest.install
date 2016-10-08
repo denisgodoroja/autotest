@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function autotest_schema() {
+  $schema['autotest_tests'] = array(
+    'fields' => array(
+      'id'         => array('type' => 'serial',  'not null' => TRUE, 'unsigned' => TRUE),
+      'uid'        => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'username'   => array('type' => 'varchar', 'not null' => TRUE, 'length' => 64, 'default' => ''),
+      'start_time' => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'end_time'   => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'time_limit' => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+    ),
+    'primary key' => array('id'),
+  );
+
+  $schema['autotest_questions'] = array(
+    'fields' => array(
+      'id'              => array('type' => 'serial', 'not null' => TRUE, 'unsigned' => TRUE),
+      'test_id'         => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE),
+      'test_number'     => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'question_number' => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'correct_answer'  => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'answer'          => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'answered_at'     => array('type' => 'int',    'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+    ),
+    'primary key' => array('id'),
+  );
+
+  $schema['autotest_alters'] = array(
+    'fields' => array(
+      'question'       => array('type' => 'varchar', 'not null' => TRUE, 'length' => 10, 'default' => ''),
+      'correct_answer' => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'num_answers'    => array('type' => 'int',     'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'explanation'    => array('type' => 'text'),
+    ),
+    'primary key' => array('question'),
+  );
+
+  return $schema;
+}

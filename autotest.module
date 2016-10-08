@@ -1,0 +1,56 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+/**
+ * Implements hook_theme().
+ */
+function autotest_theme() {
+  return array(
+    'question' => array(
+      'variables' => array(
+        'question' => NULL,
+        'time_left' => 0,
+        'is_running' => FALSE,
+      ),
+    ),
+  );
+}
+
+function template_preprocess_question(&$variables) {
+  $question = $variables['question'];
+
+  if ($variables['time_left']) {
+    $variables['time_left'] = sprintf("%02d:%02d", (int)  $variables['time_left'] / 60,  $variables['time_left'] % 60);
+  }
+  $variables['image'] = empty($question['filepath']) ? '' : $question['filepath'];
+  $variables['links'] = array();
+
+  if ($variables['is_running'] && empty($question['answer'])) {
+    for ($i = 1; $i <= $question['num_answers']; $i++) {
+      $variables['links'][$i] = array(
+        '#type' => 'link',
+        '#title' => $i,
+        '#url' => Url::fromRoute('autotest.answer', array('answer_number' => $i)),
+        '#attributes' => array(
+          'class' => array('square'),
+        ),
+      );
+    }
+  }
+
+  $variables['links']['next'] = array(
+    '#type' => 'link',
+    '#title' => t('Next question'),
+    '#url' => Url::fromRoute('autotest.next'),
+  );
+
+  if ($variables['is_running']) {
+    $variables['links']['end'] = array(
+      '#type' => 'link',
+      '#title' => t('End test'),
+      '#url' => Url::fromRoute('autotest.end'),
+    );
+  }
+}

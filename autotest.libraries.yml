@@ -1,0 +1,10 @@
+autotest.css:
+  version: 1.x
+  css:
+    component:
+      css/autotest.css: {}
+
+autotest.js:
+  version: 1.x
+  js:
+    js/autotest.js: {}

@@ -1,0 +1,80 @@
+autotest.settings:
+  path: '/admin/config/content/autotest'
+  defaults:
+    _title: 'Autotest'
+    _description: 'Configure autotest settings.'
+    _form: '\Drupal\autotest\Form\AutotestSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+autotest.main:
+  path: '/autotest'
+  defaults:
+    _controller: '\Drupal\autotest\Controller\AutotestController::mainPage'
+    _title_callback: '\Drupal\autotest\Controller\AutotestController::mainTitle'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.start:
+  path: '/autotest/start'
+  defaults:
+    _title: 'Start test'
+    _controller: '\Drupal\autotest\Controller\AutotestController::startPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.start_test:
+  path: '/autotest/start/{test_number}'
+  defaults:
+    _title: 'Start test'
+    _controller: '\Drupal\autotest\Controller\AutotestController::startPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.end:
+  path: '/autotest/end'
+  defaults:
+    _title: 'End test'
+    _controller: '\Drupal\autotest\Controller\AutotestController::endPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.answer:
+  path: '/autotest/answer/{answer_number}'
+  defaults:
+    _title: 'Answer'
+    _controller: '\Drupal\autotest\Controller\AutotestController::answerPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.next:
+  path: '/autotest/next'
+  defaults:
+    _title: 'Next question'
+    _controller: '\Drupal\autotest\Controller\AutotestController::nextPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.question:
+  path: '/autotest/question/{question_number}'
+  defaults:
+    _title_callback: '\Drupal\autotest\Controller\AutotestController::questionTitle'
+    _controller: '\Drupal\autotest\Controller\AutotestController::questionPage'
+  requirements:
+    _permission: 'autotest access'
+
+autotest.set_num_answers:
+  path: '/autotest/set-num-answers/{num}'
+  defaults:
+    _title: 'Set number of answers'
+    _controller: '\Drupal\autotest\Controller\AutotestController::answerPage'
+  requirements:
+    _permission: 'autotest admin'
+
+autotest.import:
+  path: '/autotest/import'
+  defaults:
+    _title: 'Import autotest'
+    _form: '\Drupal\autotest\Form\autotestImportForm'
+  requirements:
+    _permission: 'autotest admin'

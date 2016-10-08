@@ -1,0 +1,21 @@
+<div class="question">
+
+  {% if time_left %}
+    <div class="timer">{{ time_left }}</div>
+  {% endif %}
+
+  {% if image %}
+    <div class="image">
+      <img src="{{ image }}" />
+    </div>
+  {% endif %}
+
+  {% if links %}
+    <ul class="links">
+      {% for link in links %}
+        <li>{{ link }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+</div>
